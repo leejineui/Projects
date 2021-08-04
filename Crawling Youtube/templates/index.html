@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button type="button" class="button" onclick="present()">present</button>
+
+    <button type="button" class="button1" onclick="chart()"> Chart</button> 
+    <button type="button" class="button1" onclick="chart2()">piechart</button> 
+
+
+    <br>
+    <hr><br>
+
+    <div id="demo"></div>
+
+    <br>
+    <hr><br>
+
+    <div id="chart1"></div>
+
+    <br>
+    <hr><br>
+
+    <div id="chart2"></div>
+
+    <script>
+
+        function chart2(){
+                    graph_img = "./static/image/barchart221.png"
+                    graph_img1 = "./static/image/barchart2212.png"
+                    console.log("중간1")
+                    alert("ok");
+                    console.log("중간22")
+                    //document.getElementById("chart2").innerText = '<img scr="' + graph_img + '">';
+                    console.log("중간33")
+                    document.getElementById("chart1").innerHTML = '<img src="'+ graph_img +'">';
+                    console.log("중간44")
+                    document.getElementById("chart2").innerHTML = '<img src="'+ graph_img1 +'">';
+                    // print("wwwww")
+                    //document.getElementById("view4").innerHTML = '<img src="'+graph_img2+'">';
+                    
+                };
+
+
+
+
+        function present(){
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    data = this.responseText;
+                    document.getElementById("demo").innerText = data; /////
+
+                };
+            }
+            xhttp.open("get", "test");
+            xhttp.send();
+        }
+
+
+
+
+
+        function chart() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(1);
+                    data = this.responseText;
+                    console.log(data);
+
+                    console.log("중간")
+                    document.getElementById("chart").innerText = data; /////
+                    console.log("chart making")
+
+
+
+                };
+            }
+            xhttp.open("get", "chart");
+            xhttp.send();
+        }    
+          
+
+
+
+
+        
+
+
+
+       
+    </script>
+
+    </div>
+
+    <br>
+    <hr><br>
+
+
+</body>
+
+</html>
